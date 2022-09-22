@@ -1,6 +1,13 @@
-import PropTypes from "prop-types"
 import s from "./Input.module.css"
-export const PhoneInput = ({name, value ,func}) => {
+import React from "react"
+
+interface IProp {
+  name: string,
+  value: string,
+  func: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export const PhoneInput = ({name, value ,func}: IProp) => {
     return <label className={s.label}>Phone<input className={s.input}
   type="tel"
   name={name}
@@ -11,11 +18,4 @@ export const PhoneInput = ({name, value ,func}) => {
   required
 />
 </label>
-}
-
-
-PhoneInput.propTypes = {
-    name:  PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    func: PropTypes.func.isRequired
 }
